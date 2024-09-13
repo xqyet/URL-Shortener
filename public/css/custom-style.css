@@ -1,125 +1,122 @@
-﻿/* Custom Style for your website */
+﻿/* Default styles */
+:root {
+    --base: #1e1e2e;
+    --text: #cdd6f4;
+    --crust: #11111b;
+    --surface0: #313244;
+    --subtext0: #a6adc8;
+    --subtext1: #bac2de;
+    --pink: #f5c2e7;
+    --rosewater: #f5e0dc;
+    --blue: #89b4fa;
+    --mauve: #cba6f7;
+}
+
+/* General settings */
+:root {
+    background-color: var(--crust);
+    font-family: "Hack", "JetBrains Mono", monospace;
+    font-size: 20px;
+    scrollbar-width: none;
+}
 
 body {
-    background-color: black;
-    font-family: 'Arial', sans-serif;
-    color: #a874a5; /* General text color */
+    background-color: var(--base); /* Background set to base color */
     margin: 0;
-    padding: 0;
+    padding: 40px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
+/* Center the container */
 .container {
-    background-color: #141313; /* Dark gray background */
-    width: 48%;
-    padding: 20px;
-    padding-top: 60px; /* Padding from the top */
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
     border-radius: 10px;
-    text-align: left;
-    margin-top: 20px; /* Space between the box and the top */
-    margin-left: 0px; /* Extend the box */
-    margin-right: 0px;
-    margin-bottom: 75px; /* Space at the bottom */
+    border: solid 4px black;
+    padding: 20px;
+    background-color: var(--crust);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-h1 {
-    font-size: 2.1em; /* Header font size */
-    color: #e299de; /* Header color */
-    margin: 0;
-    margin-bottom: 40px; /* Space between header and bio */
+/* Button styling for Shorten and Copy */
+button {
+    padding: 10px 20px;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: auto; /* Keep the default system cursor */
+    border: none;
+    margin-top: 10px; /* Space between the buttons */
+    width: 100%; /* Ensure the button is the same width as the Shorten button */
 }
 
-.bio p {
-    font-size: 1em;
-    color: #a874a5; /* Bio text color */
-    font-weight: 200;
-}
+    button:hover {
+        background-color: var(--mauve); /* Optional: Adds a hover effect */
+    }
 
-.bio strong {
-    font-weight: 200;
-}
+    button:focus {
+        outline: none; /* Removes the blue border when focusing */
+    }
 
-.social h2, .projects h2, .domains h2 {
-    font-size: 1.6em;
-    color: #a874a5; /* Section header color */
+/* Back to Main Button styling */
+.back-button {
     margin-top: 20px;
+    text-align: center;
 }
 
-.username {
-    color: #f52579; /* Keep username color */
-}
+    .back-button button {
+        width: 200px; /* Fixed width for Back to Main button */
+        background-color: var(--blue);
+        cursor: auto; /* Keep the default system cursor */
+    }
 
-.project-title {
-    color: #f52579; /* Keep project title color */
-}
-
-.project-desc {
-    color: #a874a5; /* Project description color */
-}
-
-.projects p {
-    font-size: 1em;
-    font-weight: 200;
-}
-
-.domains ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.domains li {
-    color: #a874a5;
-    font-size: 1em;
-    font-weight: 200;
-    margin-bottom: 10px; /* Space between domain items */
-}
-
-/* Icon Styling */
-.icon {
-    width: 19px;
-    height: auto;
-    margin-right: 3px; /* Space between icon and text */
-    vertical-align: middle;
-}
-
-/* Webring and Badge Section */
-.webring, .badges {
+/* Styling the badges section */
+.badges {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px; /* Space between webring and bottom */
+    flex-wrap: wrap;
+    margin-top: 40px;
 }
 
-    .webring-links a, .badges a {
-        color: #f52579; /* Link color */
-        text-decoration: none;
+    .badges img {
+        margin: 5px;
     }
 
-.webring-links p {
-    text-align: center; /* Center the webring navigation */
-    font-size: 16px;
+/* Webring Navigation styling */
+.webring {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
-.badges {
-    padding-bottom: 20px; /* Padding at the bottom */
+/* General styling for text */
+h1 {
+    font-size: 32px;
+    color: var(--text);
+    margin-bottom: 20px;
 }
 
-#button {
-    border-radius: 4px;
-    padding: 3px;
+p {
+    color: var(--subtext0);
 }
 
-    #button:hover {
-        border: solid 2px #f5e0dc;
-        margin: -2px;
-    }
+/* Disable custom cursor for the entire page */
+body, * {
+    cursor: auto; /* Default system cursor */
+}
 
-#random-member {
-    display: block;
-    text-align: center;
-    padding-bottom: 10px;
-    font-size: 18px;
-    color: #f52579;
+/* Override NES.css button cursor behavior */
+button {
+    cursor: auto !important; /* Force default system cursor */
+}
+
+a, a:hover {
+    cursor: auto !important; /* Also apply for anchor links, like Back to Main */
 }

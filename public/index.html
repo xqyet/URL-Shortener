@@ -40,33 +40,29 @@
     </div>
 
     <script>
+        // Handle URL shortening
         document.getElementById('shorten-btn').addEventListener('click', function () {
             const url = document.getElementById('url-input').value;
 
-            // Make a POST request to the server to shorten the URL
-            fetch('/api/shorten', {
+            // Make a request to your Heroku backend
+            fetch('https://gb-url-shortener-1bbae33bd86a.herokuapp.com/shorten', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ originalUrl: url })
+                body: JSON.stringify({ originalUrl: url }) // Send the original URL to Heroku backend
             })
                 .then(response => response.json())
                 .then(data => {
-                    // Generate full URL (including domain) for shortened link
-                    const shortenedUrl = `${window.location.origin}/${data.shortUrl}`;
-
-                    // Update the anchor tag to show the full link and make it clickable
-                    const shortenedUrlElement = document.getElementById('shortened-url');
-                    shortenedUrlElement.href = shortenedUrl;
-                    shortenedUrlElement.textContent = shortenedUrl; // Shows full URL text
+                    // Display the shortened URL from Heroku
+                    const shortenedUrl = `https://gb-url-shortener-1bbae33bd86a.herokuapp.com/${data.shortUrl}`; // Construct the full shortened URL
+                    document.getElementById('shortened-url').href = shortenedUrl;
+                    document.getElementById('shortened-url').textContent = shortenedUrl;
 
                     // Unhide the shortened URL section
                     document.getElementById('shortened-url-section').classList.remove('hidden');
                 })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+                .catch(error => console.error('Error:', error));
         });
 
         // Copy the shortened URL to the clipboard
