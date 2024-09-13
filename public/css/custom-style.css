@@ -1,0 +1,125 @@
+﻿/* Custom Style for your website */
+
+body {
+    background-color: black;
+    font-family: 'Arial', sans-serif;
+    color: #a874a5; /* General text color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.container {
+    background-color: #141313; /* Dark gray background */
+    width: 48%;
+    padding: 20px;
+    padding-top: 60px; /* Padding from the top */
+    border-radius: 10px;
+    text-align: left;
+    margin-top: 20px; /* Space between the box and the top */
+    margin-left: 0px; /* Extend the box */
+    margin-right: 0px;
+    margin-bottom: 75px; /* Space at the bottom */
+}
+
+h1 {
+    font-size: 2.1em; /* Header font size */
+    color: #e299de; /* Header color */
+    margin: 0;
+    margin-bottom: 40px; /* Space between header and bio */
+}
+
+.bio p {
+    font-size: 1em;
+    color: #a874a5; /* Bio text color */
+    font-weight: 200;
+}
+
+.bio strong {
+    font-weight: 200;
+}
+
+.social h2, .projects h2, .domains h2 {
+    font-size: 1.6em;
+    color: #a874a5; /* Section header color */
+    margin-top: 20px;
+}
+
+.username {
+    color: #f52579; /* Keep username color */
+}
+
+.project-title {
+    color: #f52579; /* Keep project title color */
+}
+
+.project-desc {
+    color: #a874a5; /* Project description color */
+}
+
+.projects p {
+    font-size: 1em;
+    font-weight: 200;
+}
+
+.domains ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.domains li {
+    color: #a874a5;
+    font-size: 1em;
+    font-weight: 200;
+    margin-bottom: 10px; /* Space between domain items */
+}
+
+/* Icon Styling */
+.icon {
+    width: 19px;
+    height: auto;
+    margin-right: 3px; /* Space between icon and text */
+    vertical-align: middle;
+}
+
+/* Webring and Badge Section */
+.webring, .badges {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Space between webring and bottom */
+}
+
+    .webring-links a, .badges a {
+        color: #f52579; /* Link color */
+        text-decoration: none;
+    }
+
+.webring-links p {
+    text-align: center; /* Center the webring navigation */
+    font-size: 16px;
+}
+
+.badges {
+    padding-bottom: 20px; /* Padding at the bottom */
+}
+
+#button {
+    border-radius: 4px;
+    padding: 3px;
+}
+
+    #button:hover {
+        border: solid 2px #f5e0dc;
+        margin: -2px;
+    }
+
+#random-member {
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 18px;
+    color: #f52579;
+}

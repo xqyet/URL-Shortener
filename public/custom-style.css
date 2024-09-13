@@ -1,0 +1,122 @@
+﻿/* Default styles */
+:root {
+    --base: #1e1e2e;
+    --text: #cdd6f4;
+    --crust: #11111b;
+    --surface0: #313244;
+    --subtext0: #a6adc8;
+    --subtext1: #bac2de;
+    --pink: #f5c2e7;
+    --rosewater: #f5e0dc;
+    --blue: #89b4fa;
+    --mauve: #cba6f7;
+}
+
+/* General settings */
+:root {
+    background-color: var(--crust);
+    font-family: "Hack", "JetBrains Mono", monospace;
+    font-size: 20px;
+    scrollbar-width: none;
+}
+
+body {
+    background-color: var(--base); /* Background set to base color */
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Center the container */
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: solid 4px black;
+    padding: 20px;
+    background-color: var(--crust);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Button styling for Shorten and Copy */
+button {
+    padding: 10px 20px;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: auto; /* Keep the default system cursor */
+    border: none;
+    margin-top: 10px; /* Space between the buttons */
+    width: 100%; /* Ensure the button is the same width as the Shorten button */
+}
+
+    button:hover {
+        background-color: var(--mauve); /* Optional: Adds a hover effect */
+    }
+
+    button:focus {
+        outline: none; /* Removes the blue border when focusing */
+    }
+
+/* Back to Main Button styling */
+.back-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+    .back-button button {
+        width: 200px; /* Fixed width for Back to Main button */
+        background-color: var(--blue);
+        cursor: auto; /* Keep the default system cursor */
+    }
+
+/* Styling the badges section */
+.badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+    .badges img {
+        margin: 5px;
+    }
+
+/* Webring Navigation styling */
+.webring {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* General styling for text */
+h1 {
+    font-size: 32px;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--subtext0);
+}
+
+/* Disable custom cursor for the entire page */
+body, * {
+    cursor: auto; /* Default system cursor */
+}
+
+/* Override NES.css button cursor behavior */
+button {
+    cursor: auto !important; /* Force default system cursor */
+}
+
+a, a:hover {
+    cursor: auto !important; /* Also apply for anchor links, like Back to Main */
+}
