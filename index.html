@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.svg" type="image/x-icon" /> <!-- Adjust the path if needed -->
+    <!-- Load NES.css and Google Fonts -->
+    <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />  <!-- Retro Font -->
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="custom-style.css" />
+</head>
+
+<body>
+    <div class="container nes-container with-title">
+        <header>
+            <h1 class="nes-text">URL Shortener</h1>
+        </header>
+
+        <section class="input-section">
+            <p class="nes-text">Enter a URL to shorten:</p>
+            <input type="text" id="url-input" class="nes-input" placeholder="Enter your URL here" />
+            <button id="shorten-btn" class="nes-btn is-primary">Shorten</button>
+        </section>
+
+        <section id="shortened-url-section" class="hidden">
+            <div class="shortened-url-container nes-container is-error">
+                <p>Your shortened URL: <a href="#" id="shortened-url" target="_blank" class="nes-text"></a></p>
+                <button id="copy-btn" class="nes-btn is-primary">Copy</button> <!-- Copy Button -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Back to Main Button outside of the container -->
+    <div class="back-button">
+        <a href="https://gbucci.dev" class="nes-btn is-primary" style="display:inline-block; padding:10px 20px; text-decoration:none;">Back to Main</a>
+    </div>
+
+    <script>
+        const accessToken = '7e460a40fecbe24c3da1a7614741ead459cd03a2'; // Your Bitly access token
+
+        // Handle URL shortening
+        document.getElementById('shorten-btn').addEventListener('click', function () {
+            const url = document.getElementById('url-input').value;
+
+            // Make a request to Bitly API to shorten the URL
+            fetch('https://api-ssl.bitly.com/v4/shorten', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`, // Use your access token for authorization
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    long_url: url, // Send the original URL to Bitly
+                    domain: "bit.ly" // Optional: specify the domain, defaults to bit.ly
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.link) {
+                        // Display the shortened URL from Bitly
+                        const shortenedUrl = data.link;
+                        document.getElementById('shortened-url').href = shortenedUrl;
+                        document.getElementById('shortened-url').textContent = shortenedUrl;
+
+                        // Unhide the shortened URL section
+                        document.getElementById('shortened-url-section').classList.remove('hidden');
+                    } else {
+                        console.error('Error:', data);
+                        alert('Failed to shorten the URL');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        // Copy the shortened URL to the clipboard
+        document.getElementById('copy-btn').addEventListener('click', function () {
+            const shortenedUrl = document.getElementById('shortened-url').textContent;
+
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(shortenedUrl).then(function () {
+                    alert('Shortened URL copied to clipboard!');
+                }).catch(function (error) {
+                    alert('Failed to copy URL: ' + error);
+                });
+            } else {
+                alert('Clipboard API not supported. Please copy manually.');
+            }
+        });
+    </script>
+</body>
+</html>
