@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.static('public')); // Serve static files from the public folder
 
 // MongoDB connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/urlshortener'; // Updated MongoDB URI environment variable
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/urlshortener'; // Use Heroku environment variable
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
