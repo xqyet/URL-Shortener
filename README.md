@@ -27,6 +27,6 @@ Before you begin, ensure you have met the following requirements:
 To install the URL Shortener, follow these steps:
 
 ```bash
-git clone https://github.com/yourusername/simple-url-shortener.git
-cd simple-url-shortener
+git clone https://github.com/xqyet/URL-Shortener.git
+cd URL-Shortener
 npm install
