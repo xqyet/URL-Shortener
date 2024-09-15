@@ -2,7 +2,7 @@
 
 A simple web application that shortens long URLs using the Bit.ly API. This project demonstrates a straightforward implementation of a URL shortener tool, allowing users to easily create shorter and more manageable links.
 
-Visit the website here: https://domainshorten.net/
+[click here to view the site](https://domainshorten.net/)
 
 ## Features
 
