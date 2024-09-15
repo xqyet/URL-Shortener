@@ -10,7 +10,9 @@ A simple web application that shortens long URLs using the Bit.ly API. This proj
 
 ## Screenshot
 
-![URL Shortener Interface](url-shortener.png)
+Simple Web Page![image](https://github.com/user-attachments/assets/86d4a0ea-e81d-4e2e-9ea1-b0f16b093910)
+
+
 
 ## Prerequisites
 
